@@ -8,6 +8,11 @@
         .required {
             color: red;
         }
+        
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
 
         input:valid,
         textarea:valid,
@@ -15,7 +20,7 @@
             border: 2px solid green;
         }
 
-        input:valid,
+        input:invalid,
         textarea:invalid,
         select:invalid {
             border: 2px solid red;
@@ -33,7 +38,7 @@
             outline: 2px solid blue;
         }
 
-        input:dissabled,
+        input:disabled,
         textarea:disabled,
         select:disabled {
             background-color: #e0e0e0;
@@ -64,12 +69,18 @@
                 <label for="nombre">
                     Nombre <span class="required">*</span>
                 </label>
+
                 <input 
                     type="text" 
                     id="nombre" 
                     name="nombre"
                     required
-                    aria-required="true">
+                    aria-required="true"
+                    aria-describedby="nombre-error">
+                
+                <p id="nombre-error" class="error-message">
+                    Este campo es obligatorio.
+                </p>
 
                 <label for="email">
                     Email <span class="required">*</span>
@@ -79,9 +90,15 @@
                     id="email" 
                     name="email"
                     placeholder="usuario@gmail.com"
-                    pattern=".+@\..+"
+                    pattern=".+@.+\..+"
                     required
-                    aria-required="true">
+                    aria-required="true"
+                    aria-describedby="email-error">
+                
+                <p id="email-error" class="error-message">
+                    Ingrese un correo electrónico válido.
+                </p>
+            
 
                 <label for="telefono">
                     Teléfono <span class="required">*</span>
@@ -92,7 +109,12 @@
                     name="telefono"
                     pattern="[0-9]{10}"
                     required
-                    aria-required="true">
+                    aria-required="true"
+                    aria-describedby="telefono-error">
+
+                <p id="telefono-error" class="error-message">
+                    Ingrese un número de teléfono válido.
+                </p>
 
             </fieldset>
 
@@ -107,9 +129,13 @@
                     id="mensaje" 
                     name="mensaje"
                     required
-                    aria-required="true"></textarea>
+                    aria-required="true"
+                    aria-describedby="mensaje-error">
+                </textarea>
                 
-                
+            <p id="mensaje-error" class="error-message">
+                    Escriba su consulta.
+            </p>
                 <label for="consulta">Motivo</label>                
                 <select id="consulta" name="consulta">
                     
