@@ -26,3 +26,9 @@ nav{
     gap: 15px;
     padding: 20px;
 }
+
+.galeria{
+    display: flex;
+    flex-wrap: wap;
+    gap: 20px;
+}
